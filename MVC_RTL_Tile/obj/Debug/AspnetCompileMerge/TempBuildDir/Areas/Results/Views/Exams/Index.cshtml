@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 ">
+            <div class="white-header">
+                <div class="panel-heading text-center">
+                    <h3> <i class="fa fa-book"></i> Define Subject</h3>
+                </div>
+                <div class="panel-body table-responsive">
+                    <div class="progress_container" id="loading">
+                        <div class="progress progress-danger progress-striped active">
+                            <div class="bar" style="width: 100%;font-weight:bold; text-align:center">
+                                <i class="fa fa-spin fa-spinner"></i> Please wait
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width:10%">#</th>
+                               
+                                <th style="width:30%">Student </th>
+                                <th style="width:30%">Subject</th>
+
+                                <th style="width:10%">Grade</th>
+
+
+                                <th style="width:20%"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="table-content"></tbody>
+                    </table>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+
+    function getData() {
+
+        $.ajax({
+            cache: false,
+            type: 'Get',
+            url: '/Results/Exams/_Index',
+            data: '',
+            datatype: 'Json',
+            success: function (result) {
+                $("#loading").addClass('hide');
+                $("#table-content").removeClass('hide');
+                $("#table-content").html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $("#table-content").html(xhr.responseText);
+            }
+        });
+    }
+
+    // Load all on startup
+
+    $(document).ready(function () {
+
+        getData();
+    });
+
+</script>
+
+<style>
+    .table tbody td {
+        padding: 0.25rem !important;
+    }
+</style>
+
+
+
+
+
+
+
+

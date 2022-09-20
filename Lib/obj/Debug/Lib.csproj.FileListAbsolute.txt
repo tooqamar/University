@@ -1,0 +1,148 @@
+C:\Users\RMIKW\source\repos\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll.config
+C:\Users\RMIKW\source\repos\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll
+C:\Users\RMIKW\source\repos\MVC_RTL_Tile\Lib\bin\Debug\Lib.pdb
+C:\Users\RMIKW\source\repos\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.dll
+C:\Users\RMIKW\source\repos\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\RMIKW\source\repos\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\RMIKW\source\repos\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.xml
+C:\Users\RMIKW\source\repos\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\RMIKW\source\repos\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.xml
+C:\Users\RMIKW\source\repos\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CoreCompileInputs.cache
+C:\Users\RMIKW\source\repos\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CopyComplete
+C:\Users\RMIKW\source\repos\MVC_RTL_Tile\Lib\obj\Debug\Lib.dll
+C:\Users\RMIKW\source\repos\MVC_RTL_Tile\Lib\obj\Debug\Lib.pdb
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll.config
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\Lib.pdb
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.dll
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.dll
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.dll
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\zxing.dll
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.dll
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.xml
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.xml
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.xml
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\zxing.xml
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.xml
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\obj\Debug\Lib.csprojAssemblyReference.cache
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CoreCompileInputs.cache
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CopyComplete
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\obj\Debug\Lib.dll
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\obj\Debug\Lib.pdb
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\FBR.dll
+F:\Softeligent\New Friends Tile\MVC_RTL_Tile\Lib\bin\Debug\FBR.pdb
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll.config
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\Lib.pdb
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.dll
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.dll
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\FBR.dll
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.dll
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\zxing.dll
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.dll
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\FBR.pdb
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.xml
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.xml
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.xml
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\zxing.xml
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.xml
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\obj\Debug\Lib.csprojAssemblyReference.cache
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CoreCompileInputs.cache
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CopyComplete
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\obj\Debug\Lib.dll
+F:\Softeligent\Furniture\MVC_RTL_Tile\Lib\obj\Debug\Lib.pdb
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll.config
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\Lib.pdb
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.dll
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.dll
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\FBR.dll
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.dll
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\zxing.dll
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.dll
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\FBR.pdb
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.xml
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.xml
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.xml
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\zxing.xml
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.xml
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\obj\Debug\Lib.csprojAssemblyReference.cache
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CoreCompileInputs.cache
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CopyComplete
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\obj\Debug\Lib.dll
+F:\Softeligent\Electronics\MVC_RTL_Tile\Lib\obj\Debug\Lib.pdb
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll.config
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\Lib.pdb
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.dll
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.dll
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\FBR.dll
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.dll
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\zxing.dll
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.dll
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\FBR.pdb
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.xml
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.xml
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.xml
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\zxing.xml
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.xml
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\obj\Debug\Lib.csprojAssemblyReference.cache
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CoreCompileInputs.cache
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CopyComplete
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\obj\Debug\Lib.dll
+F:\Softeligent\Electronics\Withoutstore\MVC_RTL_Tile\Lib\obj\Debug\Lib.pdb
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll.config
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\Lib.pdb
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.dll
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.dll
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\FBR.dll
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.dll
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\zxing.dll
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.dll
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\FBR.pdb
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.xml
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.xml
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.xml
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\zxing.xml
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.xml
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\obj\Debug\Lib.csprojAssemblyReference.cache
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CoreCompileInputs.cache
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CopyComplete
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\obj\Debug\Lib.dll
+F:\Softeligent\Electronics\SimplePOS\MVC_RTL_Tile\Lib\obj\Debug\Lib.pdb
+F:\Qamar Work\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll.config
+F:\Qamar Work\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll
+F:\Qamar Work\MVC_RTL_Tile\Lib\bin\Debug\Lib.pdb
+F:\Qamar Work\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.dll
+F:\Qamar Work\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.dll
+F:\Qamar Work\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.dll
+F:\Qamar Work\MVC_RTL_Tile\Lib\bin\Debug\zxing.dll
+F:\Qamar Work\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.dll
+F:\Qamar Work\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.xml
+F:\Qamar Work\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.xml
+F:\Qamar Work\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.xml
+F:\Qamar Work\MVC_RTL_Tile\Lib\bin\Debug\zxing.xml
+F:\Qamar Work\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.xml
+F:\Qamar Work\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CoreCompileInputs.cache
+F:\Qamar Work\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CopyComplete
+F:\Qamar Work\MVC_RTL_Tile\Lib\obj\Debug\Lib.dll
+F:\Qamar Work\MVC_RTL_Tile\Lib\obj\Debug\Lib.pdb
+F:\Qamar Work\MVC_RTL_Tile\Lib\obj\Debug\Lib.csprojAssemblyReference.cache
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll.config
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\bin\Debug\Lib.dll
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\bin\Debug\Lib.pdb
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.dll
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.dll
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.dll
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\bin\Debug\zxing.dll
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.dll
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.xml
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\bin\Debug\EntityFramework.SqlServer.xml
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\bin\Debug\Newtonsoft.Json.xml
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\bin\Debug\zxing.xml
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\bin\Debug\zxing.presentation.xml
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CoreCompileInputs.cache
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\obj\Debug\Lib.csproj.CopyComplete
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\obj\Debug\Lib.dll
+F:\Qamar Work\MVC_RTL_Tile\MVC_RTL_Tile\Lib\obj\Debug\Lib.pdb

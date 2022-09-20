@@ -1,0 +1,192 @@
+﻿
+
+
+
+
+
+@model List<Lib.DAL.vListResult>
+@using Lib.BLL
+@{ int i = 0; }
+
+
+<tr style="background-color:rgba(185, 174, 174, 0.24)">
+    <td>  <input type="text" id="txtdef_id" value="" class=" form-control" /></td>
+
+   
+    <td>
+        <select id="CategoryID" class="form-control">
+            <option value="">---select----</option>
+            @foreach (var item in Lib.BLL.Student.GetStudentList())
+            {
+                <option value="@item.S_ID">@item.Username</option>
+            }
+        </select>
+    </td>
+    <td>
+        <select id="CourseID" class="form-control">
+            <option value="">---select----</option>
+            @foreach (var item in Lib.BLL.Subject.GetSubjectList())
+            {
+                <option value="@item.S_ID">@item.Name</option>
+            }
+        </select>
+    </td>
+    <td>
+        <select id="GradeID" class="form-control">
+            <option value="">---select----</option>
+            @foreach (var item in Lib.BLL.Grades.List())
+            {
+                <option value="@item.ID">@item.Name</option>
+            }
+        </select>
+    </td>
+
+
+
+    <td class="text-center">
+        <button type="button" id="btnadd" class="btn btn-info" onclick="Add()"> <i class="fa fa-plus"></i> </button>
+        <button type="button" id="btnedit" class="btn btn-danger hide" onclick="Update()"> <i class="fa fa-save"></i> </button>
+
+    </td>
+</tr>
+
+@foreach (var item in Model)
+{
+    { i += 1; }
+<tr>
+    <td>@i</td>
+
+    <td>
+        <span id="lbl-@item.ID">@item.StudentName</span>
+        <input type="text" id="txt-@item.ID" value="@item.StudentID" class="hide form-control" />
+    </td>
+    <td>
+        <span id="lbltax-@item.ID">@item.SNAME</span>
+        <input type="text" id="txttax-@item.ID" value="@item.SubjectID" class="hide form-control" />
+    </td>
+
+    <td>
+        <span id="lblco-@item.ID">@item.GNAME</span>
+        <input type="text" id="txtco-@item.ID" value="@item.GradeID" class="hide form-control" />
+    </td>
+   
+
+
+    <td class="text-center">
+        <a href="javascript:;" id="btnedit-@item.ID" class="label label-info" onclick="TriggerEdit(@item.ID)"> <i class="fa fa-edit"></i> </a>
+
+        <a href="javascript:;" id="btndel-@item.ID" class="label hidden label-danger" onclick="TriggerDelete(@item.ID)"> <i class="fa fa-trash"></i> </a>
+
+        <a href="javascript:;" class="hide label label-success" id="btnsubmit-@item.ID" onclick="Update(@item.ID)"> <i class="fa fa-check"></i> </a> &nbsp;
+        <a href="javascript:;" class="label label-danger hide" id="btncancel-@item.ID" onclick="CancelEdit(@item.ID)"> <i class="fa fa-close"></i> </a>
+
+    </td>
+</tr>
+}
+
+
+
+<script>
+    function Add() {
+        if ($("#SubType").val() != '') {
+            //$("#UploadingModal").modal('show');
+            $(".btn").attr('disabled', true);
+            var data = new FormData();
+
+            data.append("StudentID", $("#CategoryID").val());
+            data.append("SubjectID", $("#CourseID").val());
+            data.append("GradeID", $("#GradeID").val());
+
+
+
+            $.ajax({
+                cache: false,
+                type: 'POST',
+                processData: false,
+                contentType: false,
+                url: '/Results/Exams/Create',
+                data: data,
+                success: function (result) {
+                    // $("#UploadingModal").modal('hide');
+                    $("#loading").addClass('hide');
+                    $(".btn").attr('disabled', false);
+                    getData();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    $("body").html(xhr.responseText);
+                }
+            });
+        }
+        else {
+            $("#TaxName").focus();
+        }
+    }
+
+
+
+    function Update() {
+
+        var data = new FormData();
+        data.append("ID", $("#txtdef_id").val());
+
+
+        data.append("StudentID", $("#CategoryID").val());
+        data.append("SubjectID", $("#CourseID").val());
+        data.append("GradeID", $("#GradeID").val());
+
+
+
+
+        $.ajax({
+            cache: false,
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            url: '/Results/Exams/Update',
+            data: data,
+            success: function (result) {
+                $("#loading").addClass('hide');
+                getData();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('error');
+            }
+        });
+    }
+
+
+    function TriggerEdit(ID) {
+        $("#btnadd").addClass('hide');
+        $("#btnedit").removeClass('hide');
+        var value = $("#txt-" + ID).val();
+
+      
+
+        var cat = $("#txttax-" + ID).val();
+        var cour = $("#txtco-" + ID).val();
+        //alert(cat);
+        // $("#CategoryID option:contains(" + cat.trim() + ")").attr('selected', 'selected');
+        $("select#CategoryID").val(value.trim());
+        $("select#CourseID").val(cat.trim());
+        $("select#GradeID").val(cour.trim());
+        $("#txtdef_id").val(ID);
+    }
+    function UpdateAC(ID) {
+        $.ajax({
+            cache: false,
+            type: 'POST',
+            url: '/Results/Exam/UpdateActive',
+            data: { ID: ID, IsActive: $('#act-' + ID).is(':checked') },
+            datatype: 'Json',
+            success: function (result) {
+                $("#loading").addClass('hide');
+                getData();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('error');
+            }
+        });
+    }
+
+
+</script>

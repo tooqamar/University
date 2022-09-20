@@ -1,0 +1,183 @@
+﻿
+
+
+
+
+@model List<Lib.DAL.vListSubject>
+@using Lib.BLL
+@{ int i = 0; }
+
+
+<tr style="background-color:rgba(185, 174, 174, 0.24)">
+    <td>  <input type="text" id="txtdef_id" value="" class=" form-control" /></td>
+
+    <td> <input type="text" id="SubType" class="form-control" /> </td>
+    <td>
+        <select id="CategoryID" class="form-control">
+            <option value="">---select----</option>
+            @foreach (var item in Lib.BLL.Teacher.GetTeacherList())
+            {
+                <option value="@item.ID">@item.Username</option>
+            }
+        </select>
+    </td>
+    <td>
+        <select id="CourseID" class="form-control">
+            <option value="">---select----</option>
+            @foreach (var item in Lib.BLL.Course.GetCoursList())
+            {
+                <option value="@item.ID">@item.CourseName</option>
+            }
+        </select>
+    </td>
+
+
+
+    <td class="text-center">
+        <button type="button" id="btnadd" class="btn btn-info" onclick="Add()"> <i class="fa fa-plus"></i> </button>
+        <button type="button" id="btnedit" class="btn btn-danger hide" onclick="Update()"> <i class="fa fa-save"></i> </button>
+
+    </td>
+</tr>
+
+@foreach (var item in Model)
+{
+    { i += 1; }
+<tr>
+    <td>@i</td>
+
+    <td>
+        <span id="lbl-@item.S_ID">@item.Name</span>
+        <input type="text" id="txt-@item.S_ID" value="@item.Name" class="hide form-control" />
+    </td>
+    <td>
+        <span id="lbltax-@item.S_ID">@item.teacherName</span>
+        <input type="text" id="txttax-@item.S_ID" value="@item.Userid" class="hide form-control" />
+    </td>
+
+    <td>
+        <span id="lblco-@item.S_ID">@item.CourseName</span>
+        <input type="text" id="txtco-@item.S_ID" value="@item.CID" class="hide form-control" />
+    </td>
+    <td class="text-center">
+        <input id="act-@item.S_ID" type="checkbox" onclick="UpdateAC(@item.S_ID)" value="@item.IsActive" checked="@item.IsActive" />
+        <label for="act-@item.S_ID"></label>
+    </td>
+
+
+    <td class="text-center">
+        <a href="javascript:;" id="btnedit-@item.S_ID" class="label label-info" onclick="TriggerEdit(@item.S_ID)"> <i class="fa fa-edit"></i> </a>
+
+        <a href="javascript:;" id="btndel-@item.S_ID" class="label hidden label-danger" onclick="TriggerDelete(@item.S_ID)"> <i class="fa fa-trash"></i> </a>
+
+        <a href="javascript:;" class="hide label label-success" id="btnsubmit-@item.S_ID" onclick="Update(@item.S_ID)"> <i class="fa fa-check"></i> </a> &nbsp;
+        <a href="javascript:;" class="label label-danger hide" id="btncancel-@item.S_ID" onclick="CancelEdit(@item.S_ID)"> <i class="fa fa-close"></i> </a>
+
+    </td>
+</tr>
+}
+
+
+
+<script>
+    function Add() {
+        if ($("#SubType").val() != '') {
+            //$("#UploadingModal").modal('show');
+            $(".btn").attr('disabled', true);
+            var data = new FormData();
+
+            data.append("TeacherID", $("#CategoryID").val());
+            data.append("CourseID", $("#CourseID").val());
+            data.append("Name", $("#SubType").val());
+
+
+
+            $.ajax({
+                cache: false,
+                type: 'POST',
+                processData: false,
+                contentType: false,
+                url: '/Setting/Subject/Create',
+                data: data,
+                success: function (result) {
+                    // $("#UploadingModal").modal('hide');
+                    $("#loading").addClass('hide');
+                    $(".btn").attr('disabled', false);
+                    getData();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    $("body").html(xhr.responseText);
+                }
+            });
+        }
+        else {
+            $("#TaxName").focus();
+        }
+    }
+
+
+
+    function Update() {
+
+        var data = new FormData();
+        data.append("ID", $("#txtdef_id").val());
+
+        data.append("TeacherID", $("#CategoryID").val());
+        data.append("CourseID", $("#CourseID").val());
+        data.append("Name", $("#SubType").val());
+
+
+
+
+        $.ajax({
+            cache: false,
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            url: '/Setting/Subject/Update',
+            data: data,
+            success: function (result) {
+                $("#loading").addClass('hide');
+                getData();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('error');
+            }
+        });
+    }
+
+
+    function TriggerEdit(ID) {
+        $("#btnadd").addClass('hide');
+        $("#btnedit").removeClass('hide');
+        var value = $("#txt-" + ID).val();
+
+        $("#SubType").val(value);
+
+        var cat = $("#txttax-" + ID).val();
+        var cour = $("#txtco-" + ID).val();
+        //alert(cat);
+       // $("#CategoryID option:contains(" + cat.trim() + ")").attr('selected', 'selected');
+        $("select#CategoryID").val(cat.trim());
+        $("select#CourseID").val(cour.trim());
+        $("#txtdef_id").val(ID);
+    }
+    function UpdateAC(ID) {
+        $.ajax({
+            cache: false,
+            type: 'POST',
+            url: '/Setting/Subject/UpdateActive',
+            data: { ID: ID, IsActive: $('#act-' + ID).is(':checked') },
+            datatype: 'Json',
+            success: function (result) {
+                $("#loading").addClass('hide');
+                getData();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('error');
+            }
+        });
+    }
+
+
+</script>

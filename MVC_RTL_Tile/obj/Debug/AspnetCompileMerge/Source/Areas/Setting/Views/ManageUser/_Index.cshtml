@@ -1,0 +1,71 @@
+﻿
+
+
+@model List<Lib.DAL.tblUser>
+@{ int i = 0; }
+
+@foreach (var item in Model)
+{
+    { i++; }
+<tr>
+    <td>@i</td>
+    <td>@item.ID</td>
+    <td>@item.Username</td>
+    <td>@item.Password</td>
+
+    <td>@item.FirstName</td>
+    <td>@item.LastName</td>
+
+    <td>@item.Email</td>
+    <td>@item.Phone</td>
+    <td>@item.Desciption</td>
+    <td>@item.dteCreated</td>
+    <td>@item.dteModified</td>
+    <td>@item.dteBirthday</td>
+
+
+
+    <td class="text-center">
+        <input id="act-@item.ID" type="checkbox" onclick="Update(@item.ID)" value="@item.IsActive" checked="@item.IsActive" />
+        <label for="act-@item.ID"></label>
+    </td>
+
+
+
+
+
+    <td class="text-center">
+        <a href="/Setting/ManageUser/Create/@item.ID" class="label label-info"> <i class="fa fa-edit"></i> edit </a>
+    </td>
+
+</tr>
+}
+
+<script>
+
+
+    function Update(ID) {
+        $.ajax({
+            cache: false,
+            type: 'POST',
+            url: '/Setting/ManageUser/Update',
+            data: { ID: ID,  IsActive: $('#act-' + ID).is(':checked') },
+            datatype: 'Json',
+            success: function (result) {
+                $("#loading").addClass('hide');
+                getData();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('error');
+            }
+        });
+    }
+
+
+
+  
+
+
+
+
+</script>

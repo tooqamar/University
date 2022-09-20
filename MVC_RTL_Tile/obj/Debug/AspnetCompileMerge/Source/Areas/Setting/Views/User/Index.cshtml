@@ -1,0 +1,77 @@
+﻿@model Lib.ViewModel.LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="POS">
+    <link rel="icon" href="images/POS.ico">
+
+    <title>Login</title>
+
+    <!--Core CSS -->
+    <link href="~/Assets/bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assets/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="~/Assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="~/Assets/css/style.css" rel="stylesheet">
+    <link href="~/Assets/css/style-responsive.css" rel="stylesheet" />
+
+   
+</head>
+
+<body class="login-body" style="background-image:url('/Assets/images/bgimg.jpg')">
+
+    <div class="container">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-signin">
+            <h2 class="form-signin-heading">sign in now</h2>
+            <div class="login-wrap">
+                @if (TempData["InValid"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <strong>Error:</strong> @TempData["InValid"]
+                    </div>
+                }
+                <div class="user-login-info">
+
+                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter User Id", required = "required" } })
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Your Password..", required = "required" } })
+
+                </div>
+
+                <button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>
+
+
+
+            </div>
+
+        </div>
+
+        }
+
+    </div>
+
+
+
+   
+    <!--Core js-->
+    <script src="~/Assets/js/jquery.js"></script>
+    <script src="~/Assets/bs3/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

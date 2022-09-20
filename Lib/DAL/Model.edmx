@@ -1,0 +1,794 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_RTLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="CourseID" Type="bigint" />
+          <Property Name="RegistrationNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Student_Subject_Grade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="bigint" />
+          <Property Name="SubjectID" Type="bigint" />
+          <Property Name="GradeID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblCourses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Length" Type="bigint" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Desciption" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblGrade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblSubject">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeacherID" Type="bigint" />
+          <Property Name="CourseID" Type="bigint" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tblTeacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="150" />
+          <Property Name="LastName" Type="bigint" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="dteCreated" Type="datetime" />
+          <Property Name="dteModified" Type="datetime" />
+          <Property Name="Desciption" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="dteBirthday" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'UniDB.dbo.vListResults' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vListResults">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="StudentID" Type="bigint" />
+          <Property Name="StudentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubjectID" Type="bigint" />
+          <Property Name="SNAME" Type="nvarchar" MaxLength="150" />
+          <Property Name="GradeID" Type="int" />
+          <Property Name="GNAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'UniDB.dbo.vListStudent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vListStudent">
+          <Key>
+            <PropertyRef Name="CID" />
+            <PropertyRef Name="Userid" />
+            <PropertyRef Name="S_ID" />
+          </Key>
+          <Property Name="CID" Type="bigint" Nullable="false" />
+          <Property Name="Userid" Type="bigint" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="S_ID" Type="bigint" Nullable="false" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="RegistrationNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="subjectname" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'UniDB.dbo.vListSubject' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vListSubject">
+          <Key>
+            <PropertyRef Name="S_ID" />
+            <PropertyRef Name="Userid" />
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="S_ID" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Userid" Type="bigint" Nullable="false" />
+          <Property Name="teacherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CID" Type="bigint" Nullable="false" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="StudentCount" Type="int" />
+          <Property Name="AverageCount" Type="int" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Modified" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'UniDB.dbo.vListTeacher' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vListTeacher">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Userid" Type="bigint" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <Association Name="FK_tbl_Student_Subject_Grade_tbl_Student">
+          <End Role="tbl_Student" Type="Self.tbl_Student" Multiplicity="0..1" />
+          <End Role="tbl_Student_Subject_Grade" Type="Self.tbl_Student_Subject_Grade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Student_Subject_Grade">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Student_Subject_Grade_tblGrade">
+          <End Role="tblGrade" Type="Self.tblGrade" Multiplicity="0..1" />
+          <End Role="tbl_Student_Subject_Grade" Type="Self.tbl_Student_Subject_Grade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGrade">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Student_Subject_Grade">
+              <PropertyRef Name="GradeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Student_Subject_Grade_tblSubject">
+          <End Role="tblSubject" Type="Self.tblSubject" Multiplicity="0..1" />
+          <End Role="tbl_Student_Subject_Grade" Type="Self.tbl_Student_Subject_Grade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSubject">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Student_Subject_Grade">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Student_tblCourses">
+          <End Role="tblCourses" Type="Self.tblCourses" Multiplicity="0..1" />
+          <End Role="tbl_Student" Type="Self.tbl_Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCourses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Student">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Student_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
+          <End Role="tbl_Student" Type="Self.tbl_Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Student">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubject_tblCourses">
+          <End Role="tblCourses" Type="Self.tblCourses" Multiplicity="0..1" />
+          <End Role="tblSubject" Type="Self.tblSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCourses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblSubject">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTeacher_tblUser">
+          <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
+          <End Role="tblTeacher" Type="Self.tblTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblTeacher">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_RTLModelStoreContainer">
+          <EntitySet Name="tbl_Student" EntityType="Self.tbl_Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Student_Subject_Grade" EntityType="Self.tbl_Student_Subject_Grade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCourses" EntityType="Self.tblCourses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGrade" EntityType="Self.tblGrade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSubject" EntityType="Self.tblSubject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTeacher" EntityType="Self.tblTeacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vListResults" EntityType="Self.vListResults" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vListResults].[ID] AS [ID], 
+    [vListResults].[StudentID] AS [StudentID], 
+    [vListResults].[StudentName] AS [StudentName], 
+    [vListResults].[SubjectID] AS [SubjectID], 
+    [vListResults].[SNAME] AS [SNAME], 
+    [vListResults].[GradeID] AS [GradeID], 
+    [vListResults].[GNAME] AS [GNAME]
+    FROM [dbo].[vListResults] AS [vListResults]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vListStudent" EntityType="Self.vListStudent" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vListStudent].[CID] AS [CID], 
+    [vListStudent].[Userid] AS [Userid], 
+    [vListStudent].[Username] AS [Username], 
+    [vListStudent].[S_ID] AS [S_ID], 
+    [vListStudent].[CourseName] AS [CourseName], 
+    [vListStudent].[IsActive] AS [IsActive], 
+    [vListStudent].[RegistrationNumber] AS [RegistrationNumber], 
+    [vListStudent].[Name] AS [Name], 
+    [vListStudent].[subjectname] AS [subjectname]
+    FROM [dbo].[vListStudent] AS [vListStudent]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vListSubject" EntityType="Self.vListSubject" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vListSubject].[S_ID] AS [S_ID], 
+    [vListSubject].[Name] AS [Name], 
+    [vListSubject].[Userid] AS [Userid], 
+    [vListSubject].[teacherName] AS [teacherName], 
+    [vListSubject].[CID] AS [CID], 
+    [vListSubject].[CourseName] AS [CourseName], 
+    [vListSubject].[IsActive] AS [IsActive], 
+    [vListSubject].[StudentCount] AS [StudentCount], 
+    [vListSubject].[AverageCount] AS [AverageCount], 
+    [vListSubject].[Created] AS [Created], 
+    [vListSubject].[Modified] AS [Modified]
+    FROM [dbo].[vListSubject] AS [vListSubject]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vListTeacher" EntityType="Self.vListTeacher" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vListTeacher].[ID] AS [ID], 
+    [vListTeacher].[Userid] AS [Userid], 
+    [vListTeacher].[Username] AS [Username], 
+    [vListTeacher].[Salary] AS [Salary], 
+    [vListTeacher].[IsActive] AS [IsActive]
+    FROM [dbo].[vListTeacher] AS [vListTeacher]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_tbl_Student_Subject_Grade_tbl_Student" Association="Self.FK_tbl_Student_Subject_Grade_tbl_Student">
+            <End Role="tbl_Student" EntitySet="tbl_Student" />
+            <End Role="tbl_Student_Subject_Grade" EntitySet="tbl_Student_Subject_Grade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Student_Subject_Grade_tblGrade" Association="Self.FK_tbl_Student_Subject_Grade_tblGrade">
+            <End Role="tblGrade" EntitySet="tblGrade" />
+            <End Role="tbl_Student_Subject_Grade" EntitySet="tbl_Student_Subject_Grade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Student_Subject_Grade_tblSubject" Association="Self.FK_tbl_Student_Subject_Grade_tblSubject">
+            <End Role="tblSubject" EntitySet="tblSubject" />
+            <End Role="tbl_Student_Subject_Grade" EntitySet="tbl_Student_Subject_Grade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Student_tblCourses" Association="Self.FK_tbl_Student_tblCourses">
+            <End Role="tblCourses" EntitySet="tblCourses" />
+            <End Role="tbl_Student" EntitySet="tbl_Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Student_tblUser" Association="Self.FK_tbl_Student_tblUser">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tbl_Student" EntitySet="tbl_Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubject_tblCourses" Association="Self.FK_tblSubject_tblCourses">
+            <End Role="tblCourses" EntitySet="tblCourses" />
+            <End Role="tblSubject" EntitySet="tblSubject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTeacher_tblUser" Association="Self.FK_tblTeacher_tblUser">
+            <End Role="tblUser" EntitySet="tblUser" />
+            <End Role="tblTeacher" EntitySet="tblTeacher" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_RTLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DB_RTLEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="spAccountsFiscalYears_Periods_L">
+            <Parameter Name="ActionFlag" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="FiscalYear" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="String" />
+            <Parameter Name="Month" Mode="In" Type="String" />
+            <Parameter Name="Closed" Mode="In" Type="Boolean" />
+            <Parameter Name="Locked" Mode="In" Type="Boolean" />
+            <Parameter Name="EntryUser" Mode="In" Type="String" />
+            <Parameter Name="EntryDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spStockByNameDATE" ReturnType="Collection(DB_RTLModel.spStockByNameDATE_Result)">
+            <Parameter Name="sdate" Mode="In" Type="DateTime" />
+            <Parameter Name="edate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="spStockByPrice" ReturnType="Collection(DB_RTLModel.spStockByPrice_Result)">
+            <Parameter Name="sdate" Mode="In" Type="DateTime" />
+            <Parameter Name="edate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="tbl_Student" EntityType="DB_RTLModel.tbl_Student" />
+          <EntitySet Name="tbl_Student_Subject_Grade" EntityType="DB_RTLModel.tbl_Student_Subject_Grade" />
+          <EntitySet Name="tblCourses" EntityType="DB_RTLModel.tblCours" />
+          <EntitySet Name="tblGrades" EntityType="DB_RTLModel.tblGrade" />
+          <EntitySet Name="tblSubjects" EntityType="DB_RTLModel.tblSubject" />
+          <EntitySet Name="tblTeachers" EntityType="DB_RTLModel.tblTeacher" />
+          <AssociationSet Name="FK_tbl_Student_Subject_Grade_tbl_Student" Association="DB_RTLModel.FK_tbl_Student_Subject_Grade_tbl_Student">
+            <End Role="tbl_Student" EntitySet="tbl_Student" />
+            <End Role="tbl_Student_Subject_Grade" EntitySet="tbl_Student_Subject_Grade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Student_tblCourses" Association="DB_RTLModel.FK_tbl_Student_tblCourses">
+            <End Role="tblCours" EntitySet="tblCourses" />
+            <End Role="tbl_Student" EntitySet="tbl_Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Student_Subject_Grade_tblGrade" Association="DB_RTLModel.FK_tbl_Student_Subject_Grade_tblGrade">
+            <End Role="tblGrade" EntitySet="tblGrades" />
+            <End Role="tbl_Student_Subject_Grade" EntitySet="tbl_Student_Subject_Grade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbl_Student_Subject_Grade_tblSubject" Association="DB_RTLModel.FK_tbl_Student_Subject_Grade_tblSubject">
+            <End Role="tblSubject" EntitySet="tblSubjects" />
+            <End Role="tbl_Student_Subject_Grade" EntitySet="tbl_Student_Subject_Grade" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSubject_tblCourses" Association="DB_RTLModel.FK_tblSubject_tblCourses">
+            <End Role="tblCours" EntitySet="tblCourses" />
+            <End Role="tblSubject" EntitySet="tblSubjects" />
+          </AssociationSet>
+          <EntitySet Name="vListTeachers" EntityType="DB_RTLModel.vListTeacher" />
+          <EntitySet Name="vListResults" EntityType="DB_RTLModel.vListResult" />
+          <EntitySet Name="vListStudents" EntityType="DB_RTLModel.vListStudent" />
+          <EntitySet Name="vListSubjects" EntityType="DB_RTLModel.vListSubject" />
+          <EntitySet Name="tblUsers" EntityType="DB_RTLModel.tblUser" />
+          <AssociationSet Name="FK_tbl_Student_tblUser" Association="DB_RTLModel.FK_tbl_Student_tblUser">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tbl_Student" EntitySet="tbl_Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTeacher_tblUser" Association="DB_RTLModel.FK_tblTeacher_tblUser">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblTeacher" EntitySet="tblTeachers" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="spStockByNameDATE_Result">
+          <Property Type="String" Name="itemname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="itemcode" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="OP" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TOTALIN" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="TOTALOUT" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="Closing" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="spStockByPrice_Result">
+          <Property Type="String" Name="itemcode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="itemname" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="categoryname" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="OPENNING" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="recqty" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="recamt" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="outqty" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="outamt" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="closingqty" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <EntityType Name="tbl_Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" />
+          <Property Name="CourseID" Type="Int64" />
+          <Property Name="RegistrationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Student_Subject_Grade" Relationship="DB_RTLModel.FK_tbl_Student_Subject_Grade_tbl_Student" FromRole="tbl_Student" ToRole="tbl_Student_Subject_Grade" />
+          <NavigationProperty Name="tblCours" Relationship="DB_RTLModel.FK_tbl_Student_tblCourses" FromRole="tbl_Student" ToRole="tblCours" />
+          <NavigationProperty Name="tblUser" Relationship="DB_RTLModel.FK_tbl_Student_tblUser" FromRole="tbl_Student" ToRole="tblUser" />
+        </EntityType>
+        <EntityType Name="tbl_Student_Subject_Grade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int64" />
+          <Property Name="SubjectID" Type="Int64" />
+          <Property Name="GradeID" Type="Int32" />
+          <NavigationProperty Name="tbl_Student" Relationship="DB_RTLModel.FK_tbl_Student_Subject_Grade_tbl_Student" FromRole="tbl_Student_Subject_Grade" ToRole="tbl_Student" />
+          <NavigationProperty Name="tblGrade" Relationship="DB_RTLModel.FK_tbl_Student_Subject_Grade_tblGrade" FromRole="tbl_Student_Subject_Grade" ToRole="tblGrade" />
+          <NavigationProperty Name="tblSubject" Relationship="DB_RTLModel.FK_tbl_Student_Subject_Grade_tblSubject" FromRole="tbl_Student_Subject_Grade" ToRole="tblSubject" />
+        </EntityType>
+        <EntityType Name="tblCours">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Length" Type="Int64" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Desciption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="tbl_Student" Relationship="DB_RTLModel.FK_tbl_Student_tblCourses" FromRole="tblCours" ToRole="tbl_Student" />
+          <NavigationProperty Name="tblSubjects" Relationship="DB_RTLModel.FK_tblSubject_tblCourses" FromRole="tblCours" ToRole="tblSubject" />
+        </EntityType>
+        <EntityType Name="tblGrade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Student_Subject_Grade" Relationship="DB_RTLModel.FK_tbl_Student_Subject_Grade_tblGrade" FromRole="tblGrade" ToRole="tbl_Student_Subject_Grade" />
+        </EntityType>
+        <EntityType Name="tblSubject">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeacherID" Type="Int64" />
+          <Property Name="CourseID" Type="Int64" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Student_Subject_Grade" Relationship="DB_RTLModel.FK_tbl_Student_Subject_Grade_tblSubject" FromRole="tblSubject" ToRole="tbl_Student_Subject_Grade" />
+          <NavigationProperty Name="tblCours" Relationship="DB_RTLModel.FK_tblSubject_tblCourses" FromRole="tblSubject" ToRole="tblCours" />
+        </EntityType>
+        <EntityType Name="tblTeacher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="tblUser" Relationship="DB_RTLModel.FK_tblTeacher_tblUser" FromRole="tblTeacher" ToRole="tblUser" />
+        </EntityType>
+        <Association Name="FK_tbl_Student_Subject_Grade_tbl_Student">
+          <End Type="DB_RTLModel.tbl_Student" Role="tbl_Student" Multiplicity="0..1" />
+          <End Type="DB_RTLModel.tbl_Student_Subject_Grade" Role="tbl_Student_Subject_Grade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Student_Subject_Grade">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Student_tblCourses">
+          <End Type="DB_RTLModel.tblCours" Role="tblCours" Multiplicity="0..1" />
+          <End Type="DB_RTLModel.tbl_Student" Role="tbl_Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCours">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Student">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Student_Subject_Grade_tblGrade">
+          <End Type="DB_RTLModel.tblGrade" Role="tblGrade" Multiplicity="0..1" />
+          <End Type="DB_RTLModel.tbl_Student_Subject_Grade" Role="tbl_Student_Subject_Grade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGrade">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Student_Subject_Grade">
+              <PropertyRef Name="GradeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbl_Student_Subject_Grade_tblSubject">
+          <End Type="DB_RTLModel.tblSubject" Role="tblSubject" Multiplicity="0..1" />
+          <End Type="DB_RTLModel.tbl_Student_Subject_Grade" Role="tbl_Student_Subject_Grade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSubject">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Student_Subject_Grade">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSubject_tblCourses">
+          <End Type="DB_RTLModel.tblCours" Role="tblCours" Multiplicity="0..1" />
+          <End Type="DB_RTLModel.tblSubject" Role="tblSubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCours">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblSubject">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vListTeacher">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Userid" Type="Int64" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="vListResult">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="StudentID" Type="Int64" />
+          <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubjectID" Type="Int64" />
+          <Property Name="SNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="GradeID" Type="Int32" />
+          <Property Name="GNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vListStudent">
+          <Key>
+            <PropertyRef Name="CID" />
+            <PropertyRef Name="Userid" />
+            <PropertyRef Name="S_ID" />
+          </Key>
+          <Property Name="CID" Type="Int64" Nullable="false" />
+          <Property Name="Userid" Type="Int64" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="S_ID" Type="Int64" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="RegistrationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="subjectname" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vListSubject">
+          <Key>
+            <PropertyRef Name="S_ID" />
+            <PropertyRef Name="Userid" />
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="S_ID" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Userid" Type="Int64" Nullable="false" />
+          <Property Name="teacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CID" Type="Int64" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="StudentCount" Type="Int32" />
+          <Property Name="AverageCount" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="Int64" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dteCreated" Type="DateTime" Precision="3" />
+          <Property Name="dteModified" Type="DateTime" Precision="3" />
+          <Property Name="Desciption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="dteBirthday" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Student" Relationship="DB_RTLModel.FK_tbl_Student_tblUser" FromRole="tblUser" ToRole="tbl_Student" />
+          <NavigationProperty Name="tblTeachers" Relationship="DB_RTLModel.FK_tblTeacher_tblUser" FromRole="tblUser" ToRole="tblTeacher" />
+        </EntityType>
+        <Association Name="FK_tbl_Student_tblUser">
+          <End Type="DB_RTLModel.tblUser" Role="tblUser" Multiplicity="0..1" />
+          <End Type="DB_RTLModel.tbl_Student" Role="tbl_Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Student">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTeacher_tblUser">
+          <End Type="DB_RTLModel.tblUser" Role="tblUser" Multiplicity="1" />
+          <End Type="DB_RTLModel.tblTeacher" Role="tblTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblTeacher">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_RTLModelStoreContainer" CdmEntityContainer="DB_RTLEntities">
+          <EntitySetMapping Name="tbl_Student">
+            <EntityTypeMapping TypeName="DB_RTLModel.tbl_Student">
+              <MappingFragment StoreEntitySet="tbl_Student">
+                <ScalarProperty Name="RegistrationNumber" ColumnName="RegistrationNumber" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Student_Subject_Grade">
+            <EntityTypeMapping TypeName="DB_RTLModel.tbl_Student_Subject_Grade">
+              <MappingFragment StoreEntitySet="tbl_Student_Subject_Grade">
+                <ScalarProperty Name="GradeID" ColumnName="GradeID" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCourses">
+            <EntityTypeMapping TypeName="DB_RTLModel.tblCours">
+              <MappingFragment StoreEntitySet="tblCourses">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Desciption" ColumnName="Desciption" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGrades">
+            <EntityTypeMapping TypeName="DB_RTLModel.tblGrade">
+              <MappingFragment StoreEntitySet="tblGrade">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSubjects">
+            <EntityTypeMapping TypeName="DB_RTLModel.tblSubject">
+              <MappingFragment StoreEntitySet="tblSubject">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTeachers">
+            <EntityTypeMapping TypeName="DB_RTLModel.tblTeacher">
+              <MappingFragment StoreEntitySet="tblTeacher">
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vListTeachers">
+            <EntityTypeMapping TypeName="DB_RTLModel.vListTeacher">
+              <MappingFragment StoreEntitySet="vListTeacher">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vListResults">
+            <EntityTypeMapping TypeName="DB_RTLModel.vListResult">
+              <MappingFragment StoreEntitySet="vListResults">
+                <ScalarProperty Name="GNAME" ColumnName="GNAME" />
+                <ScalarProperty Name="GradeID" ColumnName="GradeID" />
+                <ScalarProperty Name="SNAME" ColumnName="SNAME" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vListStudents">
+            <EntityTypeMapping TypeName="DB_RTLModel.vListStudent">
+              <MappingFragment StoreEntitySet="vListStudent">
+                <ScalarProperty Name="subjectname" ColumnName="subjectname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RegistrationNumber" ColumnName="RegistrationNumber" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vListSubjects">
+            <EntityTypeMapping TypeName="DB_RTLModel.vListSubject">
+              <MappingFragment StoreEntitySet="vListSubject">
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="AverageCount" ColumnName="AverageCount" />
+                <ScalarProperty Name="StudentCount" ColumnName="StudentCount" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="teacherName" ColumnName="teacherName" />
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="S_ID" ColumnName="S_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="DB_RTLModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="dteBirthday" ColumnName="dteBirthday" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Desciption" ColumnName="Desciption" />
+                <ScalarProperty Name="dteModified" ColumnName="dteModified" />
+                <ScalarProperty Name="dteCreated" ColumnName="dteCreated" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

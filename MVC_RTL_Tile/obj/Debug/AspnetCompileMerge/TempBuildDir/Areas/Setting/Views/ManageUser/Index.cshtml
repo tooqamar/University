@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section class="">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 ">
+
+            <div class="white-header">
+                <div class="panel-heading text-center">
+                    <div class="row">
+                        <div class="col-xs-10 col-md-10 ">
+                            <h3> <i class="fa fa-book"></i> List Of Users </h3>
+                        </div>
+
+                        <div class="col-xs-2 col-md-2 ">
+                            <a href="/Setting/ManageUser/Create/" class="btn btn-white btn-sm pull-right"><i class="fa fa-plus"></i> Add New</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="panel-body table-responsive">
+                    <div class="progress_container" id="loading">
+                        <div class="progress progress-danger progress-striped active">
+                            <div class="bar" style="width: 100%;font-weight:bold; text-align:center">
+                                <i class="fa fa-spin fa-spinner"></i> Please wait
+                            </div>
+                        </div>
+                    </div>
+                    <table class="display table table-bordered table-striped" style="overflow-y:auto;">
+                        <thead>
+                            <tr>
+                                <th style="width:3%">#</th>
+                                <th style="width:5%">USER_ID</th>
+                                <th style="width:10%">User Name</th>
+
+                                <th style="width:10%">Password</th>
+                                <th style="width:5%">First Name</th>
+                                <th style="width:5%">Last Name</th>
+                                <th style="width:5%">Email</th>
+                                <th style="width:5%">Phone</th>
+                                <th style="width:5%">Description</th>
+                                <th style="width:5%">Created</th>
+                                <th style="width:5%">Modified</th>
+                                <th style="width:5%">Birthday</th>
+                                <th style="width:10%">Loacked</th>
+                                <th style="width:10%">Edit User</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="table-content"></tbody>
+                    </table>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+
+
+    function getData() {
+
+        $.ajax({
+            cache: false,
+            type: 'Get',
+            url: '/Setting/ManageUser/_Index',
+            data: '',
+            datatype: 'Json',
+            success: function (result) {
+                $("#loading").addClass('hide');
+                $("#table-content").removeClass('hide');
+                $("#table-content").html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $("#table-content").html(xhr.responseText);
+            }
+        });
+    }
+
+    // Load all on startup
+
+    $(document).ready(function () {
+
+        getData();
+    });
+
+</script>
+
+<style>
+    .table tbody td {
+        padding: 0.25rem !important;
+    }
+</style>
+
+

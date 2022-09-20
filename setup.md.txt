@@ -1,0 +1,7 @@
+No need to change connection string
+Before run the batch file, please change the batch file by update the path of vs installed in your system and .sln file directory path according to your system.
+Afetr changing the path, you are able to run the command to build the solution successfully.
+
+User Credential
+userid:  admin
+password: admin123

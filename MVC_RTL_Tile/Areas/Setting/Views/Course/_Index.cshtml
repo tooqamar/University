@@ -1,0 +1,68 @@
+﻿
+
+
+
+@model List<Lib.DAL.tblCours>
+
+
+@foreach (var item in Model)
+{
+   
+<tr>
+
+
+    <td>@item.CourseName</td>
+    <td>@item.Length</td>
+    <td>@item.tbl_Student.Count</td>
+    @*<td>@item.tblSubjects.</td>*@
+    <td>@item.Price</td>
+    <td>@item.Desciption</td>
+
+
+
+
+
+    <td class="text-center">
+        <input id="act-@item.ID" type="checkbox" onclick="Update(@item.ID)" value="@item.IsActive" checked="@item.IsActive" />
+        <label for="act-@item.ID"></label>
+    </td>
+
+
+
+
+
+    <td class="text-center">
+        <a href="/Setting/Course/Create/@item.ID" class="label label-info"> <i class="fa fa-edit"></i> edit </a>
+    </td>
+
+</tr>
+}
+
+<script>
+
+
+    function Update(ID) {
+        $.ajax({
+            cache: false,
+            type: 'POST',
+            url: '/Setting/Course/Update',
+            data: { ID: ID,  IsActive: $('#act-' + ID).is(':checked') },
+            datatype: 'Json',
+            success: function (result) {
+                $("#loading").addClass('hide');
+                getData();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('error');
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+</script>
